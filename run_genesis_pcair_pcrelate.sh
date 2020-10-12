@@ -12,6 +12,7 @@ maf=$2
 missing_rate=$3
 slide_max_bp=$4
 r2_ld_threshold=$5
+nr_pcs=$6
 
 #Call R script
 
@@ -26,5 +27,6 @@ cat /home/analyst/GENESIS_PCAIR_PCRELATE.R | R --vanilla --args \
    $maf \
    $missing_rate \
    $slide_max_bp \
-   $r2_ld_threshold
+   $r2_ld_threshold \
+   $nr_pcs
 

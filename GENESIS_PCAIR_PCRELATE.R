@@ -11,6 +11,7 @@ maf <- as.numeric(args[8])
 missing.rate <- as.numeric(args[9])
 slide.max.bp <- as.numeric(args[10])
 r2.ld.threshold <- as.numeric(args[11])
+nr.pcs <- as.numeric(args[12])
 
 #Load librariess
 library(SNPRelate)
@@ -60,7 +61,7 @@ pca <- pcair(geno.data,
 
 #Run PC-Relate
 geno.data <- GenotypeBlockIterator(geno.data, snpInclude=pruned)
-pc.relate <- pcrelate(geno.data, pcs = pca$vectors[,1:10], 
+pc.relate <- pcrelate(geno.data, pcs = pca$vectors[,1:nr.pcs], 
                        training.set = pca$unrels)
 km <- pcrelateToMatrix(pc.relate)
 
