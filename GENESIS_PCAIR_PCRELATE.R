@@ -12,6 +12,7 @@ missing.rate <- as.numeric(args[9])
 slide.max.bp <- as.numeric(args[10])
 r2.ld.threshold <- as.numeric(args[11])
 nr.pcs <- as.numeric(args[12])
+concat.fid.iid <- as.logical(args[13])
 
 #Load librariess
 library(SNPRelate)
@@ -20,6 +21,14 @@ library(GENESIS)
 
 #Open the log file
 sink(log.fn)
+
+#Concat the fid and iid 
+if (concat.fid.iid) {
+   fam.frame <- read.table(fam.fn, stringsAsFactors=F)
+   fam.frame$V2 <- paste0(fam.frame$V1, "_", fam.frame$V2)
+   write.table(fam.frame, "tmp.fam",  sep="\t", quote=F, row.names=F, col.names=F)
+   fam.fn <- "tmp.fam"
+}
 
 #Convert PLINK files to GDS files
 snpgdsBED2GDS(bed.fn = bed.fn, 
