@@ -7,7 +7,6 @@ pca.rdata.out.fn <- paste0(out.file.prefix, "_pca.RData")
 km.rdata.out.fn <- paste0(out.file.prefix, "_km.RData")
 
 #Load librariess
-library(SNPRelate)
 library(GWASTools)
 library(GENESIS)
 
