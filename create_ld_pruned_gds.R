@@ -5,12 +5,15 @@ missing.rate <- as.numeric(args[2])
 slide.max.bp <- as.numeric(args[3])
 r2.ld.threshold <- as.numeric(args[4])
 subset.snp.ids <- read.delim(args[5], stringsAsFactors = F)[,1]
+out.file.prefix <- args[6]
 gds.files <- c()
 
 #Load librariess
 library(SNPRelate)
 library(SeqArray)
 library(GWASTools)
+
+sink("ld_prune.log")
 
 #Process GDS files
 gds.in.files <- scan(text=args[6], what="")
@@ -45,6 +48,8 @@ for (gds.in.file in gds.in.files) {
 }
 
 #Write the new combined pruned GDS files 
-snpgdsCombineGeno(gds.files, "combined_pruned.gds")
+snpgdsCombineGeno(gds.files, paste0(out.file.prefix, "_combined_pruned.gds"))
+
+sink()
 
 
