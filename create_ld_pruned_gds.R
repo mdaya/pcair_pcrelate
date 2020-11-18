@@ -16,7 +16,7 @@ library(GWASTools)
 sink("ld_prune.log")
 
 #Process GDS files
-gds.in.files <- scan(text=args[6], what="")
+gds.in.files <- scan(text=args[7], what="")
 for (gds.in.file in gds.in.files) {
   #Setup for the file
   gds.out.file <- paste0("pruned_", basename(gds.in.file))

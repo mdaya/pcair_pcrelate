@@ -1,12 +1,14 @@
 #Set parameters
 args <- commandArgs(trailingOnly = TRUE)
 gds.fn <- args[1]
-out.file.prefix <- args[2]
+nr.pcs <- as.numeric(args[2])
+out.file.prefix <- args[3]
 log.fn <- paste0(out.file.prefix, "_GENESIS_PCA.log")
 pca.rdata.out.fn <- paste0(out.file.prefix, "_pca.RData")
 km.rdata.out.fn <- paste0(out.file.prefix, "_km.RData")
 
 #Load librariess
+library(SNPRelate)
 library(GWASTools)
 library(GENESIS)
 
@@ -31,7 +33,7 @@ pca <- pcair(geno.data,
 
 
 #Run PC-Relate
-geno.data <- GenotypeBlockIterator(geno.data, snpInclude=pruned)
+geno.data <- GenotypeBlockIterator(geno.data)
 pc.relate <- pcrelate(geno.data, pcs = pca$vectors[,1:nr.pcs], 
                        training.set = pca$unrels)
 km <- pcrelateToMatrix(pc.relate)

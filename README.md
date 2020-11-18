@@ -48,6 +48,7 @@ To perform LD pruning and then PCA on a pruned GDS file:
 ```
 bash /home/analyst/run_genesis_pcair_pcrelate_pruned_gds.sh \
    pruned_gds_file \
+   nr_pcs \
    out_file_prefix
 ```
 
@@ -79,25 +80,26 @@ All parameters are mandatory and should be specified in order
 
 The minimum MAF a variant should have to be included in the output GDS
 (corresponds to the maf parameter in the snpgdsSelectSNP function from the
-SNPRelate R package)
+SNPRelate R package). Recommended value: 0.01
    
 #### max\_missing\_rate 
    
 The maximum missing genotype proportion a variant may have to be included in the
 output GDS
 (corresponds to the missing.rate parameter in the snpgdsSelectSNP function from the
-SNPRelate R package)
+SNPRelate R package). Recommended value: 0.01
 
 #### slide\_max\_bp 
 
 Window size in base pairs that should be used for LD Pruning prior to performing 
 PCA (corresponds to the slide.max.bp parameter for the snpgdsLDpruning function 
-from the SNPRelate R package)
+from the SNPRelate R package). Recommended value: 1000000
    
 #### r2\_ld\_threshold 
 
 The LD threshold (the square root of this value will be passed to the ld.threshold 
-parameter of the snpgdsLDpruning function from the SNPRelate R package)
+parameter of the snpgdsLDpruning function from the SNPRelate R package).
+Recommended value: 0.1
    
 #### snp\_id\_file 
 
@@ -124,6 +126,10 @@ pruning on
 #### pruned\_gds\_file
 
 The input GDS file containing LD pruned variants
+
+#### nr\_pcs
+
+The number of PCs to use in the pcrelate kinship estimation.
 
 #### out\_file\_prefix 
 
