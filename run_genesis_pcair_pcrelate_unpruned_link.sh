@@ -17,7 +17,7 @@ concat_fid_iid=$7
 
 #Call R script
 
-cat /home/analyst/GENESIS_PCAIR_PCRELATE.R | R --vanilla --args \
+cat /home/analyst/GENESIS_PCAIR_PCRELATE_UNPRUNED_PLINK.R | R --vanilla --args \
    $plink_bed_file \
    $plink_bim_file \
    $plink_fam_file \

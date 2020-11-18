@@ -9,8 +9,7 @@ snp_id_file=$5
 
 #Call R script
 
-#cat /home/analyst/create_ld_pruned_gds.R | R --vanilla --args \
-cat create_ld_pruned_gds.R | R --vanilla --args \
+cat /home/analyst/create_ld_pruned_gds.R | R --vanilla --args \
    $maf \
    $missing_rate \
    $slide_max_bp \
