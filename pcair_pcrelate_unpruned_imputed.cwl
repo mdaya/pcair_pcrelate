@@ -1,6 +1,7 @@
 class: Workflow
 cwlVersion: v1.1
 label: ' pcair_pcrelate_unpruned_gds'
+doc: A workflow to generate PC-Air aand PC-relate output for the GENESIS association test pipeline, given a list of GDS (e.g. chr 1-22) converted from imputed VCF files, a list of info.gz files from the Michigan Imputation server for getting Rsq per variant, and an initial set of variants that are not in LD (e.g. the list provided by TOPMed)
 $namespaces:
   sbg: https://sevenbridges.com
 
