@@ -1,7 +1,7 @@
 A docker environment and calling scripts to run GENESIS PC-AiR and PC-relate on
-SevenBridgess
+SevenBridges
 
-The docker build can be pulled from https://quay.io/repository/mdaya/pcair\_pcrelate
+The docker build can be pulled from https://quay.io/repository/mdaya/pcair_pcrelate
 
 To perform LD pruning and then PCA on an unpruned PLINK file, 
 run the following command from the docker instance:
